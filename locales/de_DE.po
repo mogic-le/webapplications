@@ -65,3 +65,11 @@ msgid "Category"
 msgid_plural "Categories"
 msgstr[0] "Kategorie"
 msgstr[1] "Kategorien"
+
+#: inc/webapplication.class.php:215
+msgid "Monitoring enabled"
+msgstr "Monitoring aktiv"
+
+#: inc/webapplication.class.php:220
+msgid "Service apply rule"
+msgstr "Service Apply-Regel"

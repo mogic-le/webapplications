@@ -210,6 +210,16 @@ class PluginWebapplicationsWebapplication extends CommonDBTM {
       $tab[18]['name']     = __('Associable to a ticket');
       $tab[18]['datatype'] = 'bool';
 
+       $tab[19]['table']    = $this->getTable();
+       $tab[19]['field']    = 'monitoring_enabled';
+       $tab[19]['name']     = __('Monitoring enabled', 'webapplications');
+       $tab[19]['datatype'] = 'bool';
+
+       $tab[20]['table'] = $this->getTable();
+       $tab[20]['field'] = 'monitoring_serviceapply';
+       $tab[20]['name']  = __('Service apply rule', 'webapplications');
+
+
       $tab[30]['table']    = $this->getTable();
       $tab[30]['field']    = 'id';
       $tab[30]['name']     = __('ID');
@@ -382,6 +392,19 @@ class PluginWebapplicationsWebapplication extends CommonDBTM {
       echo "<td class='top center' colspan='4'><textarea cols='125' rows='3' name='comment' >" .
            $this->fields["comment"] . "</textarea>";
       echo "</tr>";
+
+       echo "<tr class='tab_bg_1'>";
+       //url of webapplications
+       echo "<td>" . __('Monitoring enabled', 'webapplications') . "</td>";
+       echo "<td>";
+       Dropdown::showYesNo('monitoring_enabled', $this->fields['monitoring_enabled']);
+
+       echo "</td>";
+       //is_helpdesk_visible
+       echo "<td>" . __('Service apply rule', 'webapplications') . "</td><td>";
+       Html::autocompletionTextField($this, "monitoring_serviceapply", array('size' => "65"));
+       echo "</td>";
+       echo "</tr>";
 
       $this->showFormButtons($options);
 

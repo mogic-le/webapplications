@@ -40,7 +40,7 @@ function plugin_webapplications_install() {
        && !TableExists("glpi_plugin_appweb")
        && !TableExists("glpi_plugin_webapplications_webapplications")) {
 
-      $DB->runFile(GLPI_ROOT . "/plugins/webapplications/sql/empty-2.0.0.sql");
+      $DB->runFile(GLPI_ROOT . "/plugins/webapplications/sql/empty-2.3.2.sql");
 
    } else {
 
@@ -83,6 +83,12 @@ function plugin_webapplications_install() {
           && !FieldExists("glpi_plugin_webapplications_webapplications", "users_id_tech")) {
          $DB->runFile(GLPI_ROOT . "/plugins/webapplications/sql/update-1.8.0.sql");
       }
+
+       //from 2.3 version
+       if (TableExists("glpi_plugin_webapplications_webapplications")
+           && !FieldExists("glpi_plugin_webapplications_webapplications", "monitoring_enabled")) {
+           $DB->runFile(GLPI_ROOT . "/plugins/webapplications/sql/update-2.3.2.sql");
+       }
    }
 
    if (TableExists("glpi_plugin_webapplications_profiles")) {

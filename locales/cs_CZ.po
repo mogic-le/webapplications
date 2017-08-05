@@ -70,3 +70,4 @@ msgid_plural "Categories"
 msgstr[0] "Kategorie"
 msgstr[1] "Kategorie"
 msgstr[2] "Kategorie"
+
